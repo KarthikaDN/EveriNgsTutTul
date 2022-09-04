@@ -1,0 +1,8 @@
+<p>cart-kom works!</p>
+
+<h1>Total Quantity: {{TtlQty}}</h1>
+<h1>Total Cost: <i class="fa-solid fa-indian-rupee-sign"></i>&nbsp;{{TtlCost}}</h1>
+<!-- <h1>Total Unit Cost</h1> -->
+<cart-item-kom (TotalQtyFnc)="TotalQtySupFnc($event)" (TotalCostFnc)="TotalCostSupFnc($event)">
+
+</cart-item-kom>

@@ -1,0 +1,48 @@
+<!-- <h3>Order Your Favourite Food Now!</h3> -->
+
+<table border="2" [cellPadding]="20">
+    <tr>
+        <th>Food</th>
+        <th>Like</th>
+        <th>Count</th>
+        <th>Unit Cost</th>
+        <th>Total Cost</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+    </tr>
+    <tr *ngFor="let food of cartComponents;let ind = index">
+        <td>{{food.title}} <br>{{food.detail}}</td>
+        <td>
+            <i style="color: red;" class="{{food.iconCls}} fa-2x" (click)="iconClicked(food.title)"></i>
+        </td>
+        <td>
+            <button (click)="IncCountFnc('-',ind)"><i class="fa-solid fa-minus"></i></button>
+            <input type="number" name="number" id="num" value="{{food.count}}" readonly>
+            <button (click)="IncCountFnc('+',ind)"><i class="fa-solid fa-plus"></i></button>
+        </td>
+        <td><i class="fa-solid fa-indian-rupee-sign fa-2x"></i> &nbsp;{{food.cost}}</td>
+        <td><i class="fa-solid fa-sack-dollar fa-2x"></i>&nbsp;{{food.cost * food.count}}</td>
+        <td><button (click)="updateObj(ind)" style="width: 80px;">Update</button></td>
+        <td><button (click)="deleteObj(ind)" style="width: 80px;background: red;">Delete</button></td>
+
+    </tr>
+
+</table>
+
+<div [ngClass]="{showForm:addFlag==true, hideForm:addFlag==false}">
+    <form action="">
+        <input type="text" name="nameTitle" id="" placeholder="title" [(ngModel)]="ftitle" value="{{updTitle}}"><br>
+        <textarea type="text" name="detail" placeholder="detail" [(ngModel)]="fdetail"
+            value="{{updDetail}}"></textarea><br>
+        <input type="number" name="cost" id="" placeholder="cost per item" [(ngModel)]="fcost" value="{{updCost}}"><br>
+        <button (click)="addItemToTableFnc()">{{btnName}}</button>
+
+    </form>
+</div>
+
+
+<!-- 
+<div>
+    <i class="fa-solid fa-plus fa-3x add" (click)="addNewItem()"></i>
+</div> -->

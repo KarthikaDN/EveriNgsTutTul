@@ -1,0 +1,35 @@
+table {
+  margin: 20px auto;
+  font-family: "Noto Sans", sans-serif;
+}
+table th {
+  background: black;
+  color: white;
+  padding: 10px;
+}
+table tr:nth-child(odd) {
+  background: #bbb;
+  padding: 10px;
+}
+button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+}
+button:first-child {
+  background: red;
+  margin-right: 5px;
+}
+button:last-child {
+  background: green;
+  margin-left: 5px;
+}
+.add {
+  border-radius: 50%;
+  background: green;
+  color: white;
+}
+/* .hideForm {
+  display: none;
+} */

@@ -1,0 +1,38 @@
+<h1>{{PrdSvcVar.TtlVar}}</h1>
+
+<button (click)="this.bootstrap.open(PopDivNgsUid)">Add Prod</button>
+
+<ng-template #PopDivNgsUid let-modal>
+    <div class="modal-header">
+        <h3>Add New Product</h3>
+    </div>
+    <div class="modal-body">
+        <form action="" name="form">
+            <input type="text" name="title" id="" placeholder="Title of the product" [(ngModel)]="NewItem.TtlVak"
+                class="form-control" required=""> <br><br>
+            <input type="text" name="detail" id="" placeholder="Details of the product" [(ngModel)]="NewItem.DtlVak"
+                class="form-control" required=""> <br><br>
+            <input type="number" name="amount" id="" placeholder="Cost of the product" [(ngModel)]="NewItem.AmtVak"
+                class="form-control">
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button (click)="addPrdFnc()" type="button" class="btn btn-outline-dark" (click)="modal.close()">
+            Add
+        </button>
+    </div>
+</ng-template>
+
+<div class="allProds">
+    <div *ngFor="let prodItmVar of PrdSvcVar.PrdAryVar">
+        <a [routerLink]="'./'+prodItmVar.TtlVak.toLowerCase().split(' ').join('-')" routerLinkActive="active">
+            <img src="../../assets/images/benq.jpg" alt="" width="250px">
+            <h3>{{prodItmVar.TtlVak}}</h3>
+            <p>{{prodItmVar.DtlVak}}</p>
+            <p>{{prodItmVar.AmtVak}}</p>
+        </a>
+
+    </div>
+
+
+</div>
